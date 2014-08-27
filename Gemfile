@@ -23,6 +23,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem "bootstrap-sass", "3.0.3.0"
+
 gem 'jquery-rails'
 gem 'simple_form'
 
