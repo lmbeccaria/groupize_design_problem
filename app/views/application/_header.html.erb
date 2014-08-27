@@ -1,7 +1,22 @@
-<%= content_tag :header, class: "header" do %>
-  <%= content_tag :div do %>
-    <%= link_to root_path do %>
-      <h1 class="logo" data-role="logo">Snack Logo</h1>
-    <% end %>
-  <% end %>
-<% end %>
+<div class="header">
+  <div class="fixed-width">
+    <div id="groupize-logo">
+      <%= link_to (image_tag "groupizelogo.png"), root_path %>
+    </div>
+    <div id="header-menu">
+      <ul>
+        <li><%= link_to "Get a Snack", new_snack_path %></li>
+        <li><%= link_to "About", root_path %></li>
+      </ul>
+    </div>
+    <div class="session-links">
+      <ul>
+        <li>Log in</li>
+        <li>Sign up</li>
+      </ul>
+    </div>
+    <div class="contact-info">
+      <span class="groupize-green">Contact Us:</span> <span class="groupize-grey">1-855-GROUPIZE</span>
+    </div>
+  </div>
+</div>
