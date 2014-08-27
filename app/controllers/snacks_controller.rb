@@ -1,4 +1,5 @@
 class SnacksController < ApplicationController
+  before_filter :get_snack, only: [:show, :edit, :update, :destroy]
 
   def new
     @snack = Snack.new
@@ -20,12 +21,15 @@ class SnacksController < ApplicationController
     @snacks = Snack.all
   end
 
+  def show
+  end
+
   def edit
-    @snack = Snack.find(params[:id])
+    #@snack = Snack.find(params[:id])
   end
 
   def update
-    @snack = Snack.find(params[:id])
+    #@snack = Snack.find(params[:id])
     if @snack.save!
       flash[:notice] = "Thanks for suggesting!"
       redirect_to snacks_path
@@ -35,4 +39,15 @@ class SnacksController < ApplicationController
     end
   end
 
+  def destroy
+    @snack.destroy
+    redirect_to snacks_path
+
+  end
+
+  private
+
+  def get_snack
+    @snack = Snack.find(params[:id])
+  end
 end

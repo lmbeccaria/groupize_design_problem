@@ -1,25 +1,26 @@
-<h1>Kitchen Snack Central</h1>
+<h1><span class="groupize-grey">Kitche</span></span><span class="groupize-green">n Snack C<span class="groupize-grey">entral</span></h1>
 <p>These are the snacks we keep in the company kitchen. Enjoy!</p>
 <span>Don't see anything you like?</span>
 <%= link_to "Request a New Snack", new_snack_path %>
 
-<table>
-  <thead>
-    <th>
-      <td></td>
-      <td>Time to next refill</td>
-      <td>Calories</td>
-      <td>About</td>
-    </th>
-  </thead>
-  <tbody>
-    <% @snacks.each do |snack| %>
-      <tr>
-        <td><%= link_to snack.name, edit_snack_path(snack) %></td>
-        <td><%= snack.remaining_days %> (of <%= snack.restock_frequency_days %>)</td>
-        <td><%= snack.calories %></td>
-        <td><%= snack.description %></td>
-      </tr>
-    <% end %>
-  </tbody>
+<table class="table table-striped table-bordered">
+  <tr>
+    <th class="center">Item</th>
+    <th class="center">Time to next refill</th>
+    <th class="center">Calories</th>
+    <th class="center">About</th>
+    <th></th>
+  </tr>
+  <% @snacks.each do |snack| %>
+    <tr>
+      <td><%= link_to snack.name, edit_snack_path(snack) %></td>
+      <td><%= snack.remaining_days %> (of <%= snack.restock_frequency_days %>)</td>
+      <td><%= snack.calories %></td>
+      <td><%= snack.description %></td>
+      <td>
+        <%= link_to 'Edit', edit_snack_path(snack), class: "btn btn-primary btn-xs" %>
+        <%= link_to 'Remove', snack, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-xs" %>
+      </td>
+    </tr>
+  <% end %>
 </table>
